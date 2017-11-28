@@ -11,7 +11,7 @@ import {reducers} from './reducers/index';
 let users = [];
 for (let i = 1; i < 11; i++) {
   users.push({
-    id:'id'+i,
+    id:i,
     username:'empname'+i,
     job:'Jobid'+i
   })
@@ -20,9 +20,9 @@ for (let i = 1; i < 11; i++) {
 const initial_state = {
   users:users,
 }
-const stor = createStore(reducers,initial_state);
+const storeStorage = createStore(reducers,initial_state);
 ReactDOM.render(
-  <Provider store={stor}>
+  <Provider store={storeStorage}>
     <App/>
   </Provider>,
   document.getElementById('app'));

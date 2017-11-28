@@ -2,7 +2,7 @@ import React from 'react';
 import UserListElements from './UserListElements';
 import {connect} from 'react-redux';
 import {Table} from 'react-bootstrap';
-// import {UserDelete} from './UserDelete';
+import UserDelete from './UserDelete';
 
 // export default class UserList extends React.Component{
 class UserList extends React.Component{
@@ -27,17 +27,19 @@ class UserList extends React.Component{
             })}
           </tbody>
         </Table>
-
+        <UserDelete/>
       </div>
     )
   }
 }
-// <UserDelete/>
+
 // UserList.propTypes = {
 //   users : React.PropTypes.object.isRequired
 // }
 
 function mapStateToProps(state){
+  console.log("GODLYNPAUL");
+  console.log(state);
   return ({
     users : state.users,
   })

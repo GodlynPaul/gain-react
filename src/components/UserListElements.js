@@ -18,7 +18,7 @@ class UserListElements extends React.Component{
         <td>
           <a href={'/user-edit/'+user.id}>
             <Button bsSize="xsmall">
-              Delete
+              EDIT
               <Glyphicon glyph="edit"/>
             </Button>
           </a>
@@ -35,17 +35,18 @@ class UserListElements extends React.Component{
   }
   modalDeleteShow(event){
     const user_id = Number(event.target.dataset.id);
-    const user_name = Number(event.target.dataset.username);
+    const user_name = event.target.dataset.username;
     this.props.dispatch({
-      type:'user.modalDeleteShow',
+      type:'users.modalDeleteShow',
       id:user_id,
       username:user_name,
     })
+    console.log(user_id + " --- "+ user_name);
   }
 }
 
-UserListElements.propTypes = {
-  user : React.PropTypes.object.isRequired
-}
+// UserListElements.propTypes = {
+//   user : React.PropTypes.object.isRequired
+// }
 
 export default connect()(UserListElements)
