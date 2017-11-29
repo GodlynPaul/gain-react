@@ -12,7 +12,7 @@ import UserEdit from './pages/UserEdit';
 import NotFound from './pages/NotFound';
 
 let users = [];
-for (let i = 1; i < 30; i++) {
+for (let i = 1; i < 50; i++) {
   users.push({
     id:i,
     username:'Employee '+i,
