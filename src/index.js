@@ -9,16 +9,18 @@ import {reducers} from './reducers/index';
 
 
 let users = [];
-for (let i = 1; i < 11; i++) {
+for (let i = 1; i < 30; i++) {
   users.push({
     id:i,
-    username:'empname'+i,
-    job:'Jobid'+i
+    username:'Employee '+i,
+    job:'Job '+i
   })
 }
 //Create store
 const initial_state = {
-  users:users,
+  users:{
+    list:users,
+  }
 }
 const storeStorage = createStore(reducers,initial_state);
 ReactDOM.render(

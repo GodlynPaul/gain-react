@@ -3,6 +3,11 @@ import {Modal ,Button} from 'react-bootstrap';
 import {connect} from 'react-redux';
 
 class UserDelete extends React.Component{
+  constructor(props){
+    super(props);
+    this.modalDeleteHide = this.modalDeleteHide.bind(this);
+    this.userDelete = this.userDelete.bind(this)
+  }
   render(){
     return(
       <Modal show={this.props.modal_delete.show}>
@@ -12,11 +17,25 @@ class UserDelete extends React.Component{
          </Modal.Title>
        </Modal.Header>
        <Modal.Footer>
-         <Button>No</Button>
-         <Button bsStyle='primary'>Yes</Button>
+         <Button onClick={this.modalDeleteHide}>No</Button>
+         <Button onClick={this.userDelete} bsStyle='primary'>Yes</Button>
        </Modal.Footer>
       </Modal>
     );
+  }
+  modalDeleteHide(event){
+    this.props.dispatch({
+      type:'users.modalDeleteHide',
+    });
+  }
+  userDelete(event){
+    this.props.dispatch({
+      type:'user.delete',
+      id:this.props.modal_delete.id,
+    });
+    this.props.dispatch({
+      type:'users.modalDeleteHide',
+    });
   }
 }
 
